@@ -2,6 +2,12 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Expo from "expo";
 import AppShell from './src/components/AppShell';
+import todoApp from './src/reducers';
+
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+
+let store = createStore(todoApp);
 
 export default class App extends React.Component {
   constructor() {
@@ -20,10 +26,17 @@ export default class App extends React.Component {
     this.setState({ isReady: true });
   }
   render() {
+    let content = null;
     if (!this.state.isReady) {
-      return <Expo.AppLoading />;
+      content = <Expo.AppLoading />;
+    } else {
+      content = <AppShell />
     }
-    return <AppShell />;
+    return (
+      <Provider store={store}>
+        {content}
+      </Provider>
+    )
   }
 }
 

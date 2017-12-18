@@ -1,16 +1,19 @@
-import react from 'react';
-import { Text } from 'native-base';
+import React from 'react';
+import { Text, ListItem } from 'native-base';
 
 
 const ToDo = ({ onClick, completed, text }) => (
-    <Text
-        onClick={onClick}
-        style={{
-            textDecoration: completed ? 'line-through' : 'none';
-        }}
-    >
-        {text}
-    </Text>
+    <ListItem>
+
+        <Text
+            onPress={onClick}
+            style={{
+                textDecoration: completed ? 'line-through' : 'none'
+            }}
+        >
+            {text}
+        </Text>
+    </ListItem>
 )
 
 export default ToDo;

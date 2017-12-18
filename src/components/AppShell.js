@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Container, Header, Left, Body, Right, Title } from 'native-base';
+import { Container, Header, Left, Body, Right, Title, Content } from 'native-base';
+import AddTodo from '../containers/AddTodo';
+import VisibleToDoList from '../containers/VisibleToDoList';
 export default class AppShell extends Component {
     render() {
         return (
@@ -7,10 +9,14 @@ export default class AppShell extends Component {
                 <Header>
                     <Left />
                     <Body>
-                        <Title>My Todo</Title>
+                        <Title>My To Do</Title>
                     </Body>
                     <Right />
                 </Header>
+                <Content>
+                    <AddTodo />
+                    <VisibleToDoList />
+                </Content>
             </Container>
         );
     }
