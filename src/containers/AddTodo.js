@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Header, Content, Item, Button, Input, Text } from 'native-base';
+import { Container, Header, Content, Item, Button, Input, Text, Icon } from 'native-base';
 import { connect } from 'react-redux';
 import { addTodo } from '../actions';
 
@@ -27,7 +27,7 @@ class AddTodo extends Component {
                     dispatch(addTodo(this.state.text));
                     this.clearText();
                 }} >
-                    <Text>Add</Text>
+                    <Icon name='add' />
                 </Button>
             </Item>
         );
