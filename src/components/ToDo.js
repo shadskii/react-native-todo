@@ -8,7 +8,7 @@ const ToDo = ({ onClick, completed, text }) => (
         <Text
             onPress={onClick}
             style={{
-                textDecoration: completed ? 'line-through' : 'none'
+                // textDecoration: completed ? 'line-through' : 'none'
             }}
         >
             {text}

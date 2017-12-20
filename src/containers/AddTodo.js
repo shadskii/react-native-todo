@@ -3,21 +3,35 @@ import { Container, Header, Content, Item, Button, Input, Text } from 'native-ba
 import { connect } from 'react-redux';
 import { addTodo } from '../actions';
 
-let AddTodo = ({ dispatch }) => {
-    return (
-        // <Container>
+class AddTodo extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            text: ''
+        }
+    }
+    clearText = () => {
+        this._textInput.setNativeProps({ text: '' });
+    }
 
-        <Item>
-            {/* <Input placeholder="Add To Do" onSubmit />
-                 */}
-            <Button onPress={() => dispatch(addTodo("hello world"))} >
-                <Text>Hello</Text>
-            </Button>
-        </Item>
+    render() {
+        dispatch = this.props.dispatch;
+        return (
+            <Item>
+                <Input
+                    ref={component => this._textInput = component}
+                    placeholder="Remind me to"
+                    onChangeText={(text) => this.setState({ text })} />
 
-        // </Container>
-    );
-
+                <Button onPress={() => {
+                    dispatch(addTodo(this.state.text));
+                    this.clearText();
+                }} >
+                    <Text>Add</Text>
+                </Button>
+            </Item>
+        );
+    }
 }
-AddTodo = connect()(AddTodo);
-export default AddTodo;
+add = connect()(AddTodo);
+export default add;

@@ -5,19 +5,10 @@ import ToDo from './ToDo';
 
 export const ToDoList = ({ todos }) => (
 
-    // <FlatList
-    //     data={todos}
-    //     renderItem={({ todo }) => <ToDo key={todo.id} {...todo} onClick={() => onToDoClick(todo.id)} />}
-    // />
-
     <List>
-        <ListItem><Text>asddd</Text></ListItem>
         {todos.map(todo => {
-
             return <ToDo key={todo.id} {...todo} />
-            // return <ListItem><Text>{todo.text}</Text></ListItem>
         })}
-        {console.log("hello")}
     </List>
 
 );
