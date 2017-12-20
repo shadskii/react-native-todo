@@ -1,18 +1,22 @@
 import React from 'react';
-import { Text, ListItem, CheckBox } from 'native-base';
+import { Text, ListItem, CheckBox, Left, Body } from 'native-base';
 
 
 const ToDo = ({ onClick, completed, text }) => (
-    <ListItem
+    <ListItem icon
         onPress={onClick}>
-        <CheckBox checked={completed} />
-        <Text
-            style={{
-                textDecorationLine: completed ? 'line-through' : 'none'
-            }}
-        >
-            {text}
-        </Text>
+        <Left>
+            <CheckBox checked={completed} />
+        </Left>
+        <Body>
+            <Text
+                style={{
+                    textDecorationLine: completed ? 'line-through' : 'none'
+                }}
+            >
+                {text}
+            </Text>
+        </Body>
     </ListItem>
 )
 
