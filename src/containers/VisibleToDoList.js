@@ -3,7 +3,6 @@ import { toggleTodo } from '../actions';
 import { ToDoList } from '../components/ToDoList';
 
 const getVisibleTodos = (todos) => {
-    console.log(todos);
     return todos;
 }
 

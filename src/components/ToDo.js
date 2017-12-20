@@ -1,14 +1,14 @@
 import React from 'react';
-import { Text, ListItem } from 'native-base';
+import { Text, ListItem, CheckBox } from 'native-base';
 
 
 const ToDo = ({ onClick, completed, text }) => (
-    <ListItem>
-
+    <ListItem
+        onPress={onClick}>
+        <CheckBox checked={completed} />
         <Text
-            onPress={onClick}
             style={{
-                // textDecoration: completed ? 'line-through' : 'none'
+                textDecorationLine: completed ? 'line-through' : 'none'
             }}
         >
             {text}
