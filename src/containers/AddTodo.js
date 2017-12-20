@@ -12,6 +12,7 @@ class AddTodo extends Component {
     }
     clearText = () => {
         this._textInput.setNativeProps({ text: '' });
+        this.setState({ text: '' })
     }
 
     render() {
@@ -21,12 +22,14 @@ class AddTodo extends Component {
                 <Input
                     ref={component => this._textInput = component}
                     placeholder="Remind me to"
-                    onChangeText={(text) => this.setState({ text })} />
+                    onChangeText={(input) => this.setState({ text: input })} />
 
-                <Button onPress={() => {
-                    dispatch(addTodo(this.state.text));
-                    this.clearText();
-                }} >
+                <Button
+                    disabled={this.state.text.length < 1}
+                    onPress={() => {
+                        dispatch(addTodo(this.state.text));
+                        this.clearText();
+                    }} >
                     <Icon name='add' />
                 </Button>
             </Item>
