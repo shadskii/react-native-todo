@@ -23,7 +23,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         onTodoClickDelete: id => {
-            console.log("delete " + id)
             dispatch(removeTodo(id))
         },
         onTodoClickToggle: id => {
