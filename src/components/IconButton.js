@@ -2,7 +2,6 @@ import React from 'react';
 import { Button, Icon, Text } from 'native-base';
 
 const IconButton = ({ isActive, name, icon, onClick }) => {
-    console.log(isActive);
     return (
         <Button
             vertical
