@@ -4,7 +4,6 @@ import { setVisibilityFilter } from '../actions';
 import IconButton from '../components/IconButton';
 
 const mapStateToProps = (state, ownProps) => {
-    console.log(state.visibilityFilter);
     return {
         isActive: ownProps.filter === state.visibilityFilter,
         name: ownProps.name,
