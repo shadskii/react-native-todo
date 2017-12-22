@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Button, Icon, Text } from 'native-base';
 
 const IconButton = ({ isActive, name, icon, onClick }) => {
@@ -13,5 +14,12 @@ const IconButton = ({ isActive, name, icon, onClick }) => {
         </Button >
     );
 };
+
+IconButton.propTypes = {
+    isActive: PropTypes.bool.isRequired,
+    name: PropTypes.string.isRequired,
+    icon: PropTypes.string.isRequired,
+    onClick: PropTypes.func.isRequired
+}
 
 export default IconButton;
