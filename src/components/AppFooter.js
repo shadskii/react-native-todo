@@ -2,7 +2,7 @@ import React from 'react';
 import { Footer, FooterTab } from 'native-base';
 import FilterButton from '../containers/FilterButton';
 
-const AppFooter = (props) => {
+const AppFooter = () => {
     return (
         <Footer>
             <FooterTab>
