@@ -15,6 +15,23 @@ const todos = (state = [], action) => {
                     ? { ...todo, completed: !todo.completed }
                     : todo
             )
+        case 'REMOVE_TODO':
+            let index = -1;
+            for (i = 0; i < state.length; i++) {
+                if (state[i].id === action.id) {
+                    index = i;
+                }
+            }
+            let newState;
+            if (index <= 0) {
+                newState = [];
+            } else {
+                newState = state;
+                newState.splice(index, 1);
+            }
+            return (
+                newState
+            )
         default:
             return state
     }
