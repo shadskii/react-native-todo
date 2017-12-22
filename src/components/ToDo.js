@@ -15,7 +15,7 @@ const ToDo = ({ onClick, completed, text }) => (
                 icon
                 onPress={onClick}
             >
-                <Icon name={completed ? 'checkbox' : 'square'} style={{ fontSize: 40, color: 'red' }} />
+                <Icon name={completed ? 'checkbox' : 'square'} style={{ fontSize: 40, color: 'blue' }} />
                 <Text
                     onPress={onClick}
                     style={{
