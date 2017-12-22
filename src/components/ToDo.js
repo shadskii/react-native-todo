@@ -3,21 +3,21 @@ import PropTypes from 'prop-types';
 import { Text, ListItem, CheckBox, Left, Body, SwipeRow, Button, Icon, Content, Item } from 'native-base';
 
 
-const ToDo = ({ onClick, completed, text }) => (
+const ToDo = ({ onClickToggle, onClickDelete, completed, text }) => (
     <SwipeRow
         icon
-        onPress={onClick}
+        onPress={onClickToggle}
         rightOpenValue={-100}
         stopRightSwipe={-75}
         disableRightSwipe={true}
         body={
             <ListItem
                 icon
-                onPress={onClick}
+                onPress={onClickToggle}
             >
                 <Icon name={completed ? 'checkbox' : 'square'} style={{ fontSize: 40, color: 'blue' }} />
                 <Text
-                    onPress={onClick}
+                    onPress={onClickToggle}
                     style={{
                         textDecorationLine: completed ? 'line-through' : 'none'
                     }}
@@ -27,14 +27,15 @@ const ToDo = ({ onClick, completed, text }) => (
             </ListItem>
         }
         right={
-            < Button danger onPress={() => alert('Trash')}>
+            < Button danger onPress={onClickDelete}>
                 <Icon active name="trash" />
             </Button >
         } />
 )
 
 ToDo.propTypes = {
-    onClick: PropTypes.func.isRequired,
+    onClickToggle: PropTypes.func.isRequired,
+    onClickDelete: PropTypes.func.isRequired,
     completed: PropTypes.bool.isRequired,
     text: PropTypes.string.isRequired
 }
